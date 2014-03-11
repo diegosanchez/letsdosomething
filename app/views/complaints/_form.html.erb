@@ -9,7 +9,7 @@
   </div>
   <br/>
 <% end %>
-<%= form_for @complaint do |f| %>  
+<%= form_for @complaint, :html => { :class => 'complaint_form' } do |f| %>  
   <div class="form-group">
     <%= f.label :title, class: 'has-error' %>
     <%= f.text_field :title, class: 'form-control' %>

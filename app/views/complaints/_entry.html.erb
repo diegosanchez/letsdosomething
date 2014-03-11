@@ -4,19 +4,25 @@
 
   <!-- Complaint entry-->
   <div id="comp_<%= complaint.id %>" class="row comp-entry">
-    <div class="col-lg-8 comp-info">
-      <span><p><%= complaint.title %></p></span>
-      <span><p><%= complaint.body %></p></span>
-      <span><p><%= "#{translate('complaint.author')} #{ complaint.author.email}" %></p></span>
-    </div>
-    <div class="col-lg-4 comp-advocators">
-      <% if not complaint.has_advocators? %>
-        <span><p><%= translate( 'complaint.none_advocator' )%></p></span>
-      <% else %>
-        <% complaint.advocators.reverse.each do |u| %> 
-          <span><p><%= u.email %></p></span>
+    <div class="row">
+      <div class="col-lg-8 comp-info">
+        <span><p><%= complaint.title %></p></span>
+        <span><p><%= complaint.body %></p></span>
+      </div>
+      <div class="col-lg-4 comp-advocators">
+        <% if not complaint.has_advocators? %>
+          <span><p><%= translate( 'complaint.none_advocator' )%></p></span>
+        <% else %>
+          <% complaint.advocators.reverse.each do |u| %> 
+            <span><p><%= u.email %></p></span>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 comp-author">
+        <span><p><%= "#{translate('complaint.author')} #{ complaint.author.email}" %></p></span>
+      </div>
     </div>
   </div>
   <!-- End 'Complaint entry-->

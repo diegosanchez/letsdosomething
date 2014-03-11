@@ -7,7 +7,7 @@ $(document).ready( function() {
       var post = $.post( form.attr('action'), form.serialize() );
 
       post.done( function(  data, textStatus, jqXHR  ) {
-        var content = $('#comp_' + data.id).children('.comp-advocators')
+        var content = $('#comp_' + data.id).find('.comp-advocators')
         content.empty()
         jQuery.each( data.advocators.reverse(), function( i, email ) {
           content.append( '<span><p>' + email + '</p></span>' );

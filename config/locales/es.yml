@@ -29,6 +29,7 @@ es:
     none_advocator: "Aún no hay apoyo"
     form:
       title_new: 'Nueva queja'
+      title_edit: 'Editar queja'
     errors:
       creation: 'Algunos campos son inválidos'
         

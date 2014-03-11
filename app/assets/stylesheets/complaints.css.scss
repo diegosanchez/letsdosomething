@@ -6,18 +6,6 @@
 
 /* Customization */
 
-.border_red_debug {
-  border-style:dashed;
-  border-width:1px;
-  border-color:red;
-}
-
-.border_green_debug {
-  border-style:dashed;
-  border-width:1px;
-  border-color:green;
-}
-
 
 .field_with_errors {
   @extend .has-error;
@@ -27,6 +15,16 @@
   @extend .has-error;
 }
 
+/***
+* Complaint form 
+*/
+.complaint_form {
+  margin:0 0 40px 0;
+}
+
+/***
+* Complaint index
+*/
 /* Gradient colors */
 $cmp-grd-t: #f4fff0;
 $cmp-grd-b: #ffffff;
@@ -48,4 +46,9 @@ $cmp-grd-b: #ffffff;
 
 .comp-action-list {
   display: inline !important;
+}
+
+.comp-author {
+  font-style:italic;
+  color:$gray-light;
 }

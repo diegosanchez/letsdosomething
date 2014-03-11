@@ -6,7 +6,7 @@ module ComplaintModule
   end
 
   def grab_complaint( title )
-    find(:xpath, "//div/div/span/p[contains(text(), '#{title}')]/../../.." )
+    find(:xpath, "//p[contains(text(), '#{title}')]/../../.." )
   end
 
   def action_link( action, complaint = nil)
@@ -17,7 +17,6 @@ module ComplaintModule
             "../../"  \
             "form[@action='complaints/#{complaint.id}/" \
             "#{conjugate(action)}_by_user']/a"
-
     find(:xpath, query)
   end 
 end
@@ -42,13 +41,13 @@ end
 Then /^User sees '(.*)' complaints and it's advocators$/ do |complaint_title|
   author = User.find_by_email( grab_email_from( complaint_title ) )
   Complaint.by_author( author ).each do |complaint|
-  page.should have_content( complaint.body )
-  page.should have_content( complaint.title )
+    page.should have_content( complaint.body )
+    page.should have_content( complaint.title )
 
-  complaint.advocators.each do |u| 
-    page.should have_content( u.email )
+    complaint.advocators.each do |u| 
+      page.should have_content( u.email )
+    end
   end
-end
 end
 
 Then /^'(.*)' sees the complaint titled '(.*)'$/ do |name, title|
@@ -74,7 +73,7 @@ end
 
 When /^'(.*)' advocates '(.*)'$/ do |user, complaint_title|
   complaint = Complaint.find_by_title( complaint_title )
-  action_link( 'advocate', complaint ) .click()
+  action_link( 'advocate', complaint ).click()
 end
 
 When /^'(.*)' relinquishes '(.*)'$/ do |user, complaint_title|
