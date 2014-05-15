@@ -1,0 +1,11 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  project_name: "Let's do sth"
+  sign_up: 'Sign up today!'
+  sign_out: 'Log out'
+  log_in: 'Log in'
+  complaint:
+    none_complaint: "There aren't complaints"
+

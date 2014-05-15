@@ -1,0 +1,14 @@
+<div class="row marketing">   <!-- Complaints container -->
+  <% if @complaints.empty? %>
+    <div class="col-lg-12 boder_debug border_green_debug"> <!-- entry -->
+      <span><%= translate( 'complaint.none_complaint' ) %></span>
+    </div> <!-- end 'entry -->
+  <% end %>
+
+  <div class="col-lg-12 comp-section"> <!-- complaint section -->
+    <% @complaints.each do |c| %>
+      <%= render partial: "entry", locals: { complaint: c } %>
+    <% end %>
+  </div> <!-- end 'complaint section-->
+
+</div>  <!-- End of 'Complaints container -->

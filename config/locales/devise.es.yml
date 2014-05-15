@@ -1,0 +1,8 @@
+es:
+  devise:
+    password_forgotten: 'Olvido su password?'
+    change_password: 'Cambio de password'
+    failure:
+      user:
+        invalid: "Usuario o password inválido"
+        not_found_in_database: "Usuario inexistente"

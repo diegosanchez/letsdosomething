@@ -1,0 +1,32 @@
+@import "bootstrap";
+@import "bootstrap/theme";
+@import "jumbotron-narrow";
+
+.navbar-text.navbar-text-fixed {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 2px;
+}
+
+.border_red_debug {
+  border-style:dashed;
+  border-width:1px;
+  border-color:red;
+}
+
+.border_green_debug {
+  border-style:dashed;
+  border-width:1px;
+  border-color:green;
+}
+
+.quotation {
+  font-style: italic;
+}
+
+.author {
+  font-size: 14px !important;
+  text-align: right;
+  color:$gray-light;
+}
+

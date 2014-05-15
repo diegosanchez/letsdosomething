@@ -1,0 +1,44 @@
+<div class="header">
+  <ul role="navegation" class="nav nav-pills pull-right">
+    <li><a href="<%= root_path %>">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <%= translate('complaint.nav') %> <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="<%= disabled %>">
+          <a href="<%= new_complaint_path %>">
+            <%= translate('complaint.new') %>
+          </a>
+        </li>
+        <li>
+          <a href="<%= complaints_path %>"><%= translate('complaint.list') %></a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <%= translate('donation.title') %> <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#" ><%= translate('donation.coding') %></a></li>
+        <li><a href="#"><%= translate('donation.paypal') %></a></li>
+      </ul>
+    </li>
+    <li>
+      <p class="navbar-text navbar-text-fixed">
+      <% if user_signed_in? %>
+        <%= current_user.email.strip %>
+        <%= link_to '', destroy_user_session_path, 
+          :class => "glyphicon glyphicon-log-out"
+        %>
+      <% else %>
+        <%= link_to translate('log_in'), new_user_session_path,
+          :id => 'log_in' %>
+      <% end %>
+      </p>
+    </li>
+  </ul>
+  <h3 class="text-muted"><b><%= translate('project_name') %></b></h3>
+</div>
+

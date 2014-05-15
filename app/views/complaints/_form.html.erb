@@ -1,0 +1,27 @@
+<% if not @complaint.errors.empty? %>
+  <div class="error_explanation">
+    <h2><%= translate('complaint.errors.creation') %></h2>
+    <ul>
+      <% @complaint.errors.each do |e| %>
+        <li><%= display_status_for(@complaint, e) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <br/>
+<% end %>
+<%= form_for @complaint, :html => { :class => 'complaint_form' } do |f| %>  
+  <div class="form-group">
+    <%= f.label :title, class: 'has-error' %>
+    <%= f.text_field :title, class: 'form-control' %>
+    <p class="help-block"><%= display_status_for( @complaint, :title ) %></p>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+    <p class="help-block"><%= display_status_for( @complaint, :body ) %></p>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'form-control' %>
+  </div>
+<% end %>
+

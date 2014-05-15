@@ -1,0 +1,41 @@
+<div class="row">   <!-- form container -->
+  <%= form_for(resource,                                  
+   :as => resource_name,                      
+   :url => session_path(resource_name),       
+   :html => { :class => 'col-lg-8 col-lg-offset-2' } ) do |f| %>
+    <% if flash[:alert] %>
+      <div class="error_explanation">
+        <h2><%= translate('loggin_error') %></h2>
+        <ul>
+          <li><%= translate(flash[:alert]) %></li>
+        </ul>
+      </div>
+    <% end %>
+    <br/>
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, { :autofocus => true, :class => 'form-control' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, { :class => 'form-control' } %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="form-group">
+        <%= f.check_box :remember_me %> 
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+
+    <div class="form-group">
+      <%= f.submit translate('sign_in'), 
+        { :id => 'sign_in', :class => 'form-control' }  %>
+    </div>
+
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div> <!-- end of 'form container -->
+
+

@@ -1,0 +1,27 @@
+@import "bootstrap";
+@import "bootstrap/theme";
+
+$error_padding: 10px;
+
+.error_explanation { 
+  background-color: #fdf7f7;
+  border-left-color: $brand-danger;
+  border-left-style: solid;
+  border-left-width: 3px;
+  padding: $error_padding $error_padding $error_padding $error_padding;
+
+  h2 {
+    font-size: 18px;
+  }
+}
+
+#error_explanation h2 {
+  font-size: 18px;
+}
+
+#error_explanation {
+  @extend .error_explanation;
+}
+
+
+

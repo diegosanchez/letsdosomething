@@ -1,0 +1,26 @@
+<div class="row comp-action">
+  <div class="col-lg-8">
+      <% if complaint.written_by?( current_user ) %>
+        <a href="<%= edit_complaint_path( complaint.id ) %>" 
+          title="<%= translate('complaint.actions.edit') %>" 
+          class="glyphicon glyphicon-edit"> </a>
+      <% else %>
+        <a href="#" 
+          class="glyphicon glyphicon-edit btn-link"></a>
+      <% end %>
+      &nbsp;
+      <%= form_tag( "complaints/#{complaint.id}/advocated_by_user", 
+         method: 'post', class: 'comp-action-list' ) do %>
+        <a href="#" 
+          title="<%= translate('complaint.actions.advocate') %>" 
+          class="advocate glyphicon glyphicon-thumbs-up"> </a>
+      <% end %>
+      &nbsp;
+      <%= form_tag( "complaints/#{complaint.id}/relinquished_by_user", 
+         method: 'post', class: 'comp-action-list' ) do %>
+        <a href="#" 
+          title="<%= translate('complaint.actions.relinquish') %>" 
+          class="relinquish glyphicon glyphicon-thumbs-down"> </a>
+      <% end %>
+  </div>
+</div>

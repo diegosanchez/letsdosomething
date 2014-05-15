@@ -1,0 +1,18 @@
+<div class="item jumbotron">
+<h3><%= translate('space') %></h3>
+  <p class="lead quotation">
+  Un espacio para compartir reclamos y conjuntamente allar una solución entre aquellos que 
+  reclaman y la autoridades competentes
+  </p>
+  <p>
+    <% if user_signed_in? %>
+      <%= link_to translate('want_to_complaint'), new_complaint_path,
+        :class => "btn btn-lg btn-success",
+        :id => 'sign_up' %>
+    <% else %>
+      <%= link_to translate('sign_up_right_now'), new_user_registration_path,
+        :class => "btn btn-lg btn-success",
+        :id => 'sign_up' %>
+    <% end %>
+  </p>
+</div>

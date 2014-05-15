@@ -1,0 +1,22 @@
+es:
+  activerecord:
+    messages: 
+      blank: 
+        "El %{attribute} debe estar completo"
+    errors:
+      models:
+        complaint:
+          attributes:
+            title:
+              blank: "Debe especificar un título"
+            body:
+              blank: "Debe completar el detalle"
+        user:
+          attributes:
+            email:
+              taken: 'está en uso'
+              not_found: 'inválido'
+            password:
+              too_short: 'es corto'
+              confirmation: 'no coincide con el password'
+

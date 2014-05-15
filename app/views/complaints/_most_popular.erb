@@ -1,0 +1,8 @@
+<% most_popular_complaints.each do |c| %>
+<div class="row marketing">
+  <div class="col-lg-12">
+    <%= render partial: 'complaints/entry', :locals => { :complaint => c } %>
+  </div>
+</div>
+
+<% end %>
