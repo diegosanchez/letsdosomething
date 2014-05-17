@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
 gem 'jquery-rails'
+gem "paperclip-dropbox", ">= 1.1.7"
 
 
 

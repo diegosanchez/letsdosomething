@@ -1,11 +1,16 @@
 class Complaint < ActiveRecord::Base
-  attr_accessible :body, :title, :author
+  attr_accessible :body, :title, :author, :prove
 
   validates :title, :body, :presence => true
   validates :author, :presence => true
 
   has_many :signatures
   has_many :users, :through => :signatures
+  has_attached_file :prove,
+    :storage => :dropbox,
+    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+    :dropbox_visibility => 'public'
+  validates_attachment_content_type :prove, size: { in: 0..10.megabytes } :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   before_save do
     unless @author.nil? 

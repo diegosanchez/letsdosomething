@@ -20,6 +20,12 @@
     <%= f.text_area :body, class: 'form-control' %>
     <p class="help-block"><%= display_status_for( @complaint, :body ) %></p>
   </div>
+  
+   <div class="form-group">
+    <%= f.label :prove, class: 'has-error' %>
+    <%= f.file_field :prove, accept: 'image/*', class: 'prove-upload form-control' %>
+  </div>
+
   <div class="actions">
     <%= f.submit class: 'form-control' %>
   </div>
