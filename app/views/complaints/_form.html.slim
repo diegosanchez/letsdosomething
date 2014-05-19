@@ -1,0 +1,21 @@
+- if not @complaint. errors.empty?
+  .error_explanation
+    h2 #{ translate('complaint.errors.creation') }
+    ul
+      - @complaint.errors.each do |e|
+        li #{ display_status_for(@complaint, e) }
+
+
+= form_for @complaint, html: { class: 'complaint_form' } do |f|
+  .form-group
+    = f.label :title, class: 'has-error'
+    = f.text_field :title, class: 'form-control'
+    p.help-block #{ display_status_for( @complaint, :title ) }
+
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: 'form-control'
+    p.help-block #{ display_status_for( @complaint, :body ) }
+
+  .actions
+    = f.submit class: 'form-control'

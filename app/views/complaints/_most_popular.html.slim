@@ -1,0 +1,4 @@
+- most_popular_complaints.each do |c|
+  .row.marketing
+    .col-lg-12
+      = render partial: 'complaints/entry', locals: { complaint: c }

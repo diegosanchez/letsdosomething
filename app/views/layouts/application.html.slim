@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title = yield :title
+    = stylesheet_link_tag 'application', :media => 'all'
+    = csrf_meta_tags
+    /![if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]
+
+    /![if lt IE 9]>
+      |<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      |<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      |<![endif]
+
+  body
+    .container
+      = render '/layouts/navigation_bar'
+      = yield 
+      = render '/layouts/footer_bar'
+
+    = javascript_include_tag 'application'

@@ -1,0 +1,25 @@
+.header
+  ul.nav.nav-pills.pull-right role="navegation"
+    li = link_to 'home', root_path
+    li.dropdown: a.dropdown-toggle data-toggle="dropdown" href="#"
+      ul.dropdown-menu
+        li class="#{ disabled }"
+          = link_to translate('complaint.new'), new_complaint_path
+        li = link_to translate('complaint.list'), complaints_path
+
+    li.dropdown
+      = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do
+        = translate('donation.title')
+        span.caret
+      ul.dropdown-menu
+        li = link_to translate('donation.coding'), '#'
+        li = link_to translate('donation.paypal'), '#'
+
+    li
+      p.navbar-text.nav-bar-text-fixed
+        - if user_signed_in?
+          = current_user.email.strip
+          = link_to '', destroy_user_session_path, class: 'glyphicon glyphicon-log-out'
+        
+        - else
+          = link_to translate('log_in'), new_user_session_path, id: 'log_in'

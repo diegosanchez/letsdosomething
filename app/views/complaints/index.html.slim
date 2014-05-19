@@ -1,0 +1,8 @@
+.row.marketing
+  - if @complaints.empty?
+    .col-lg-12.border_debug.border_green_debug
+      span #{ translate('complaint.none_complaint') }
+
+  .col-lg-12.comp-section
+    - @complaints.each do |c|
+      = render partial: 'entry', locals: { complaint: c }

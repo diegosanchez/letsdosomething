@@ -1,0 +1,24 @@
+/! action section
+= render partial: 'complaints/actions', locals: { complaint: complaint }
+
+/! Complaint entry
+
+.row.comp-entry id="comp_#{ complaint.id }"
+  .row
+    .col-lg-8.comp-info
+      span: p #{ complaint.title }
+      span: p #{ complaint.body }
+
+    .col-lg-4.comp-advocators
+      - if not complaint.has_advocators?
+        span: p #{ translate( 'complaint.none_advocator') }
+
+      - else
+
+        - complaint.advocators.reverse.each do |u|
+          span: p #{ u.email }
+
+  .row
+    .col-lg-8.comp-author
+      span: p #{ translate('complaint.author') } #{ complaint.author.email }
+

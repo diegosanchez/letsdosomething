@@ -1,0 +1,24 @@
+.row.comp-action
+  .col-lg-8
+    - if complaint.written_by?( current_user )
+      = link_to('', edit_complaint_path(complaint.id), title: translate('complaint.actions.edit'),
+          class: 'glyphicon glyphicon-edit')
+
+    - else 
+      a.glyphicon.glyphicon-edit.btn-link href="#"
+    |&nbsp;
+
+    /[FIXME] We should use appropiate routes helpers
+    = form_tag( "complaints/#{complaint.id}/advocated_by_user", method: :post,
+      class: 'comp-action-list') do
+        = link_to('', '#', title: translate('complaint.actions.advocate'),
+          class: 'advocate glyphicon glyphicon-thumbs-up')
+
+    |&nbsp
+    = form_tag( "complaints/#{complaint.id}/relinquished_by_user", method: :post,
+      class: 'comp-action-list') do
+        = link_to('', '#', title: translate('complaint.actions.advocate'),
+          class: 'relinquish glyphicon glyphicon-thumbs-down')
+
+
+

@@ -1,0 +1,19 @@
+.carousel.slide id="index_carouosel" data-ride="carousel"
+  /! Indicators
+  ol.carousel-indicators
+    - (slides.size..0).each do |i|
+      li.active data-target="#index_carousel" data-slide-to="#{i}"
+
+  /! Wrapper for slides
+  .carousel-inner
+    - slides.each do |s|
+      = render s
+
+  /!controls
+  a.left.carousel-control href="#index_carousel" data-slide="prev"
+    span.glyphicon.glyphicon-chevron-left
+
+  a.right.carousel-control href="#index_carousel" data-slide="next"
+    span.glyphicon.glyphicon-chevron-right
+
+  
