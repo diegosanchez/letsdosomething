@@ -10,6 +10,8 @@ class ComplaintsController < ApplicationController
   end
 
   def create
+    debugger
+    puts "#{__FILE__}:#{__LINE__} - #{ params.inspect() }"
     @complaint = Complaint.new( params[:complaint] )
     @complaint.author = current_user
     if ( @complaint.save )

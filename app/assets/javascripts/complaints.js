@@ -22,10 +22,47 @@ function update_advocators( action_button ) {
   });
 };
 
+/*
 function dropzone_setup() {
   var zone = $('#zone');
   var form_url = zone.closest('form').prop('action');
-  zone.dropzone( { url: form_url } );
+  var drop_zone = zone.dropzone( { 
+    url: form_url,
+    forceFallback: true,
+    uploadMultiple: true,
+    previewsContainer: false,
+    autoProcessQueue: false,
+  }
+  } );
+};
+*/
+
+
+function dropzone_setup() {
+  var zone = $('#zone');
+  var form_url = zone.closest('form').prop('action');
+  zone.dropzone( { 
+    url: form_url,
+    previewsContainer: false,
+    autoProcessQueue: false,
+    init: function() {
+      var myDropzone = this;
+
+      // First change the button to actually tell Dropzone to process the queue.
+      $(':submit').on( "click", function( e ) {
+        e.preventDefault();
+        e.stopPropagation();
+        myDropzone.processQueue();
+      });
+    },
+    sendingmultiple: function() {
+     x 
+    },
+    successmultiple: function(files, response) {
+    },
+    errormultiple: function(files, response) {
+    }
+  } );
 };
 
 
