@@ -10,6 +10,11 @@
   <br/>
 <% end %>
 <%= form_for @complaint, :html => { :class => 'complaint_form' } do |f| %>  
+  <div id="zone" class="dropzone">
+    <div class="fallback">
+      <%= f.file_field :file, :multiple => true %>
+    </div>
+  </div>
   <div class="form-group">
     <%= f.label :title, class: 'has-error' %>
     <%= f.text_field :title, class: 'form-control' %>
@@ -19,8 +24,6 @@
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control' %>
     <p class="help-block"><%= display_status_for( @complaint, :body ) %></p>
-  </div>
-  <div id="zone" class="dropzone">
   </div>
   <div class="actions">
     <%= f.submit class: 'form-control' %>

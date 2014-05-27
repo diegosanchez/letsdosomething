@@ -1,61 +1,15 @@
-
-;(function(){
-
-/**
- * Require the module at `name`.
- *
- * @param {String} name
- * @return {Object} exports
- * @api public
- */
-
-function require(name) {
-  var module = require.modules[name];
-  if (!module) throw new Error('failed to require "' + name + '"');
-
-  if (!('exports' in module) && typeof module.definition === 'function') {
-    module.client = module.component = true;
-    module.definition.call(this, module.exports = {}, module);
-    delete module.definition;
+// Uses AMD or browser globals to create a jQuery plugin.
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+      // AMD. Register as an anonymous module.
+      define(['jquery'], factory);
+  } else {
+      // Browser globals
+      factory(jQuery);
   }
+} (function (jQuery) {
+    var module = { exports: { } }; // Fake component
 
-  return module.exports;
-}
-
-/**
- * Registered modules.
- */
-
-require.modules = {};
-
-/**
- * Register module at `name` with callback `definition`.
- *
- * @param {String} name
- * @param {Function} definition
- * @api private
- */
-
-require.register = function (name, definition) {
-  require.modules[name] = {
-    definition: definition
-  };
-};
-
-/**
- * Define a module's exports immediately with `exports`.
- *
- * @param {String} name
- * @param {Generic} exports
- * @api private
- */
-
-require.define = function (name, exports) {
-  require.modules[name] = {
-    exports: exports
-  };
-};
-require.register("component~emitter@1.1.2", function (exports, module) {
 
 /**
  * Expose `Emitter`.
@@ -221,19 +175,6 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-});
-
-require.register("dropzone", function (exports, module) {
-
-
-/**
- * Exposing dropzone
- */
-module.exports = require("dropzone/lib/dropzone.js");
-
-});
-
-require.register("dropzone/lib/dropzone.js", function (exports, module) {
 
 /*
  *
@@ -267,7 +208,7 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __slice = [].slice;
 
-  Em = typeof Emitter !== "undefined" && Emitter !== null ? Emitter : require("component~emitter@1.1.2");
+  Em = typeof Emitter !== "undefined" && Emitter !== null ? Emitter : require("emitter");
 
   noop = function() {};
 
@@ -1143,7 +1084,6 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
     };
 
     Dropzone.prototype.enqueueFile = function(file) {
-      console.debug( file);
       if (file.status === Dropzone.ADDED && file.accepted === true) {
         file.status = Dropzone.QUEUED;
         if (this.options.autoProcessQueue) {
@@ -1863,13 +1803,5 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
 
 }).call(this);
 
-});
-
-if (typeof exports == "object") {
-  module.exports = require("dropzone");
-} else if (typeof define == "function" && define.amd) {
-  define([], function(){ return require("dropzone"); });
-} else {
-  this["Dropzone"] = require("dropzone");
-}
-})()
+    return module.exports;
+}));

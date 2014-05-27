@@ -22,41 +22,32 @@ function update_advocators( action_button ) {
   });
 };
 
-/*
 function dropzone_setup() {
   var zone = $('#zone');
-  var form_url = zone.closest('form').prop('action');
-  var drop_zone = zone.dropzone( { 
-    url: form_url,
-    forceFallback: true,
-    uploadMultiple: true,
-    previewsContainer: false,
-    autoProcessQueue: false,
-  }
-  } );
-};
-*/
-
-
-function dropzone_setup() {
-  var zone = $('#zone');
-  var form_url = zone.closest('form').prop('action');
+  var new_form = zone.closest('form');
+  var form_url = new_form.prop('action');
   zone.dropzone( { 
     url: form_url,
-    previewsContainer: false,
     autoProcessQueue: false,
+    enqueueForUpload: false,
+    uploadMultiple:true,
+    parallelUploads: 1000, /* magic number */
     init: function() {
       var myDropzone = this;
 
       // First change the button to actually tell Dropzone to process the queue.
       $(':submit').on( "click", function( e ) {
-        e.preventDefault();
-        e.stopPropagation();
-        myDropzone.processQueue();
+        if ( myDropzone.getQueuedFiles().length > 0) { 
+          e.preventDefault();
+          e.stopPropagation();
+          myDropzone.processQueue();
+        }
       });
     },
-    sendingmultiple: function() {
-     x 
+    sendingmultiple: function(file, xhr, formData) {
+      new_form.find( ":input" ).each( function( index, input ) {
+        formData.append( input.name, input.value );
+      });
     },
     successmultiple: function(files, response) {
     },
@@ -67,12 +58,10 @@ function dropzone_setup() {
 
 
 $(document).ready( function() {
-  Dropzone.autoDiscover = false;
-
   update_advocators( '.advocate' );
   update_advocators( '.relinquish' );
 
+  Dropzone.autoDiscover = false;
   dropzone_setup();
-
 });
 

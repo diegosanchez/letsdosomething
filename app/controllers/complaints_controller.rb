@@ -1,5 +1,5 @@
 class ComplaintsController < ApplicationController
-  before_filter :authenticate_user!, :except => [ :index ]
+  #before_filter :authenticate_user!, :except => [ :index ]
 
   def index
     @complaints = Complaint.all
@@ -10,8 +10,6 @@ class ComplaintsController < ApplicationController
   end
 
   def create
-    debugger
-    puts "#{__FILE__}:#{__LINE__} - #{ params.inspect() }"
     @complaint = Complaint.new( params[:complaint] )
     @complaint.author = current_user
     if ( @complaint.save )
