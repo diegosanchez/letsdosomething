@@ -10,6 +10,10 @@ class ComplaintsController < ApplicationController
   end
 
   def create
+    files = params[:complaint].delete(:files)
+    files.each do |f|
+      puts "#{__FILE__}:#{__LINE__} - #{f.original_filename}"
+    end
     @complaint = Complaint.new( params[:complaint] )
     @complaint.author = current_user
     if ( @complaint.save )
