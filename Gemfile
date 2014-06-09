@@ -8,8 +8,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
 gem 'jquery-rails'
-
-
+gem 'dropbox-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,6 +34,8 @@ group :test do
   gem "capybara-email"
   gem "rspec-mocks"
   gem "selenium-webdriver"
+  gem "vcr"
+  gem "webmock"
 end
 
 gem "rspec-rails", :group => [ :development, :test ]
