@@ -126,4 +126,21 @@ describe Complaint do
       expect(collection).to include( complaint, ignored_agreement )
     end
   end
+
+  describe "attaching & detaching proofs" do
+    let(:proof_01) { Factory::ProofFactory.proof('image001.png') }
+    let(:proof_02) { Factory::ProofFactory.proof('image002.png') }
+
+    it "should contain proofs after these were added" do
+      complaint.attachs( proof_01 )
+      complaint.attachs( proof_02 )
+
+      expect( complaint.proofs ).to include( proof_01, proof_02 ) 
+    end
+
+    it "should detach proofs" do
+      complaint.detachs( proof_01 ) 
+      expect( complaint.proofs ).to_not include( proof_01 ) 
+    end
+  end
 end 

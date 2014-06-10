@@ -5,6 +5,7 @@ class Complaint < ActiveRecord::Base
   validates :author, :presence => true
 
   has_many :signatures
+  has_many :proofs
   has_many :users, :through => :signatures
 
   before_save do
@@ -42,6 +43,14 @@ class Complaint < ActiveRecord::Base
 
   def relinquished_by( user )
     self.users.delete( user ) unless self.author == user
+  end
+
+  def attachs( proof )
+    self.proofs << proof
+  end
+
+  def detachs( proof )
+    self.proofs.delete( proof )
   end
 
   def self.by_author( user )
