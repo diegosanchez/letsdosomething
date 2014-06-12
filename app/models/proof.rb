@@ -3,15 +3,16 @@ class Proof < ActiveRecord::Base
     [ :dropbox ]
   end
 
-  attr_accessible :path, :space
-
-  validates :path, :space, :presence => true
+  attr_accessible :file, :space
   validates :space, inclusion: { in: Proof.spaces } 
 
-  belongs_to :complaint
+  def path
+    "/proofs/#{(self.id.nil?) ? 'id' : self.id}/#{self.file}"
+  end
 
-  def path=( file_path )
+  def file=(f)
     raise StandardError if self.persisted?
-    write_attribute(:path, "proves/#{file_path}" )
+    write_attribute( :file, f )
   end
 end
+

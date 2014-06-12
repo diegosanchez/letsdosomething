@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20140610193125) do
   create_table "proofs", :force => true do |t|
     t.integer  "complaint_id"
     t.string   "space"
-    t.string   "path"
+    t.string   "file"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
