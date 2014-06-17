@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-content.dropbox.com/1/files/auto/missing_file.txt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Authorization:
+      - Bearer 08077Bd7g1oAAAAAAAAAE6pEDlbSw9Y3BupRgI_wWCX8u1x4MBT_tTfAk8exTlzg
+  response:
+    status:
+      code: 404
+      message: None
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 10 Jun 2014 14:13:59 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"error": "File not found"}'
+    http_version: 
+  recorded_at: Tue, 10 Jun 2014 14:14:00 GMT
+recorded_with: VCR 2.9.2

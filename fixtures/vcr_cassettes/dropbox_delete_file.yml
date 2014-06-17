@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/fileops/delete
+    body:
+      encoding: US-ASCII
+      string: root=auto&path=%2Ftest.txt
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - Bearer 08077Bd7g1oAAAAAAAAAE6pEDlbSw9Y3BupRgI_wWCX8u1x4MBT_tTfAk8exTlzg
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 10 Jun 2014 13:53:17 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - gvc=MTQwOTUzOTUyNzEzMTIzODM4NzU5NDM5OTAxOTY5Mjk5NTMxODE%3D; expires=Sun, 09
+        Jun 2019 13:53:17 GMT; Path=/; httponly
+      X-Server-Response-Time:
+      - '236'
+      X-Dropbox-Request-Id:
+      - 78791649313153937c6c67391a769e47
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: US-ASCII
+      string: ! '{"is_deleted": true, "revision": 46, "rev": "2e244f0c5a", "thumb_exists":
+        false, "bytes": 0, "modified": "Tue, 10 Jun 2014 13:53:17 +0000", "client_mtime":
+        "Wed, 31 Dec 1969 23:59:59 +0000", "path": "/test.txt", "is_dir": false, "icon":
+        "page_white_text", "root": "app_folder", "mime_type": "text/plain", "size":
+        "0 bytes"}'
+    http_version: 
+  recorded_at: Tue, 10 Jun 2014 13:53:18 GMT
+recorded_with: VCR 2.9.2

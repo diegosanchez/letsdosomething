@@ -10,13 +10,33 @@ class ComplaintsController < ApplicationController
   end
 
   def create
-    @complaint = Complaint.new( params[:complaint] )
-    @complaint.author = current_user
-    if ( @complaint.save )
+    result = false
+
+    begin
+      repo = Storage::Repository.new
+      ActiveRecord::Base.transaction do
+        files = params[:complaint].delete(:files) || [] 
+        @complaint = Complaint.new( params[:complaint] )
+        @complaint.author = current_user
+
+        files.each do |f|
+          proof = Proof.create( :space => :dropbox, :path => f.original_filename )
+          repo.upload( proof.path, f.tempfile )
+          @complaint.attachs( proof )
+        end
+
+        result = @complaint.save 
+      end
+    rescue RepositoryError => e
+      result = false 
+    end
+
+    if ( result )
       redirect_to complaints_path
     else
       render :new
     end
+
   end
 
   def edit

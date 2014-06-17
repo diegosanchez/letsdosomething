@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api-content.dropbox.com/1/files_put/auto/test.txt?overwrite=true
+    body:
+      encoding: US-ASCII
+      string: file content
+    headers:
+      Content-Type:
+      - application/octet-stream
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OfficialDropboxRubySDK/1.6.4
+      Content-Length:
+      - 12
+      Authorization:
+      - Bearer 08077Bd7g1oAAAAAAAAAE6pEDlbSw9Y3BupRgI_wWCX8u1x4MBT_tTfAk8exTlzg
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 10 Jun 2014 13:52:00 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Server-Response-Time:
+      - '406'
+      X-Dropbox-Request-Id:
+      - 3d656898cf1d240000adfb977b510e77
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 45, "rev": "2d244f0c5a", "thumb_exists": false, "bytes":
+        12, "modified": "Tue, 10 Jun 2014 13:52:00 +0000", "client_mtime": "Tue, 10
+        Jun 2014 13:52:00 +0000", "path": "/test.txt", "is_dir": false, "icon": "page_white_text",
+        "root": "app_folder", "mime_type": "text/plain", "size": "12 bytes"}'
+    http_version: 
+  recorded_at: Tue, 10 Jun 2014 13:52:01 GMT
+recorded_with: VCR 2.9.2

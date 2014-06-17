@@ -17,8 +17,13 @@
   </div>
   <div class="form-group">
     <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control' %>
+    <%= f.text_area :body, rows: "10", class: 'form-control' %>
     <p class="help-block"><%= display_status_for( @complaint, :body ) %></p>
+  </div>
+  <div class="proves">
+    <span class="single-file form-control" >
+      <%= f.file_field :files, :multiple => true, :class => 'pull-left' %>
+    </span>
   </div>
   <div class="actions">
     <%= f.submit class: 'form-control' %>
