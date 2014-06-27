@@ -20,8 +20,8 @@ class ComplaintsController < ApplicationController
         @complaint.author = current_user
 
         files.each do |f|
-          proof = Proof.create( :space => :dropbox, :path => f.original_filename )
-          repo.upload( proof.path, f.tempfile )
+          proof = Proof.create( :space => :dropbox, :file => f.original_filename )
+          repo.upload( proof.path, f.read )
           @complaint.attachs( proof )
         end
 

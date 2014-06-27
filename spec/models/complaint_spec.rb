@@ -143,4 +143,5 @@ describe Complaint do
       expect( complaint.proofs ).to_not include( proof_01 ) 
     end
   end
+
 end 

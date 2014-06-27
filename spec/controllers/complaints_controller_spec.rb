@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe ComplaintsController do
+  let(:title)   { "Complaint's title" }
+  let(:body)    { "Complaint's body" }
   let (:john) { Factory::UserFactory.user } 
   let!(:complaint_by_john) { Factory::UserComplaint.complaint( john ) }
   let (:chad)   { Factory::UserFactory.user( 'chad' ) }
@@ -16,6 +18,30 @@ describe ComplaintsController do
       expect(Complaint).to receive(:all)
       expect(response.status).to eql(200)
       get :index
+    end
+  end
+
+  describe "#create" do
+    let(:proof)   { 
+      double( :file => 'file_01.png', :path => '/proofs/1/file_01.png' ) }
+    it "should create a complaint with proofs" do
+      params = { 
+        :complaint => {
+          :title => title, 
+          :body => body,
+          :files => [ fixture_file_upload( "/#{proof.file}", 'image/png' ) ]
+        }
+      }
+
+      expect(Storage::Repository).to receive(:new)  \
+        .and_return( double(:upload => {}) )
+
+      post :create, params
+
+      expect(Complaint.last).to have(1).proofs
+      expect(Complaint.last.title).to eql( title )
+      expect(Complaint.last.body).to eql( body )
+
     end
   end
 
@@ -72,9 +98,9 @@ describe ComplaintsController do
           expect(Complaint).to receive(:find).with(complaint_by_john.id.to_s)
             .and_return(complaint_by_john)
           post :update, { :id => complaint_by_john.id, 
-              :complaint => { :title => "new title", :body => "new body" } }
-          expect(complaint_by_john.title).to eql("new title")
-          expect(complaint_by_john.body).to eql("new body")
+              :complaint => { :title => title, :body => body } }
+          expect(complaint_by_john.title).to eql(title)
+          expect(complaint_by_john.body).to eql(body)
         end
       end
     end
