@@ -10,6 +10,11 @@ Letsdosomething::Application.routes.draw do
       :to => 'complaints#relinquished_by_user', 
       :via => [ :post ] }
 
+  match     'proofs/:id',
+    { :to   => 'proofs#content',
+      :as   => 'proof_content',
+      :via  => [ :get ] }
+
   devise_for :users
   root  to: "welcome#index"
 end

@@ -22,5 +22,9 @@
           title="<%= translate('complaint.actions.relinquish') %>" 
           class="relinquish glyphicon glyphicon-thumbs-down"> </a>
       <% end %>
+      &nbsp;
+      <a href="<%= complaint_path( complaint.id ) %>" 
+          title="<%= translate('complaint.actions.view') %>" 
+          class="glyphicon glyphicon-eye-open"> </a>
   </div>
 </div>
