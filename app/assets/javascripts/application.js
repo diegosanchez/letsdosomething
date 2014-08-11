@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require galleria/galleria-1.3.5
 //= require bootstrap
+//= require complaints/proofs_thumnails
 //= require_tree .
