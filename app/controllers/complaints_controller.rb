@@ -1,5 +1,6 @@
 class ComplaintsController < ApplicationController
-  before_filter :authenticate_user!, :except => [ :index ]
+  before_filter :authenticate_user!, 
+    :except => [ :index, :show, :most_popular ]
 
   def index
     @complaints = Complaint.all
@@ -7,6 +8,10 @@ class ComplaintsController < ApplicationController
 
   def new
     @complaint = Complaint.new
+  end
+
+  def show
+    @complaint = Complaint.find( params[:id] )
   end
 
   def create
@@ -20,8 +25,8 @@ class ComplaintsController < ApplicationController
         @complaint.author = current_user
 
         files.each do |f|
-          proof = Proof.create( :space => :dropbox, :path => f.original_filename )
-          repo.upload( proof.path, f.tempfile )
+          proof = Proof.create( :space => :dropbox, :file => f.original_filename )
+          repo.upload( proof.path, f.read )
           @complaint.attachs( proof )
         end
 
