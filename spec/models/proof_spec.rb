@@ -21,6 +21,7 @@ describe Proof do
       proof = Proof.create( :space => :dropbox, :file => 'filename.png' )
       expect(proof.file).to eq( 'filename.png' )
       expect(proof.path).to eq( "/proofs/#{proof.id}/filename.png" )
+      expect(proof.space).to eq( :dropbox )
     end
   end
 

@@ -1,0 +1,17 @@
+<h4><%= translate('complaint.form.title_show') %></h4>
+
+<div class="row marketing">   <!-- Complaints container -->
+  <div class="col-lg-12 comp-section"> 
+    <%= render partial: "body", locals: { :complaint => @complaint } %>
+  </div> 
+
+  <div class="col-lg-12 proof-section">
+    <div class"galleria col-lg-8 col-offset-2">
+      <% @complaint.proofs.each do |p| %>
+        <%= image_tag proof_content_path( p ) %>
+      <% end %>
+    </div>
+  </div>
+</div>  <!-- End of 'Complaints container -->
+
+

@@ -1,5 +1,4 @@
 Letsdosomething::Application.routes.draw do
-  resources :complaints
   match     'complaints/:id/advocated_by_user', 
     { :defaults => { :format => 'json' },
       :to => 'complaints#advocated_by_user', 
@@ -9,6 +8,13 @@ Letsdosomething::Application.routes.draw do
     { :defaults => { :format => 'json' },
       :to => 'complaints#relinquished_by_user', 
       :via => [ :post ] }
+
+  match     'proofs/:id',
+    { :to   => 'proofs#content',
+      :as   => 'proof_content',
+      :via  => [ :get ] }
+
+  resources :complaints
 
   devise_for :users
   root  to: "welcome#index"

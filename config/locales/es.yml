@@ -24,6 +24,7 @@ es:
       edit: 'Editar'
       advocate: 'Apoyar'
       relinquish: 'Retirarse'
+      view: 'Vista detallada'
     nav: 'Quejas'
     new: 'Nueva'
     list: 'Lista'
