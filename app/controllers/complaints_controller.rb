@@ -1,5 +1,6 @@
 class ComplaintsController < ApplicationController
-  before_filter :authenticate_user!, :except => [ :index, :show ]
+  before_filter :authenticate_user!, 
+    :except => [ :index, :show, :most_popular ]
 
   def index
     @complaints = Complaint.all
@@ -99,5 +100,9 @@ class ComplaintsController < ApplicationController
     render json: { :id => complaint.id,                         \
       :advocators => complaint.advocators.map { |u| u.email }   \
     }
+  end
+
+  def most_popular
+    render :json => Complaint.top
   end
 end

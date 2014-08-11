@@ -1,4 +1,17 @@
+app.directive( 'complaint', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      obj: '@obj' 
+    },
+    templateUrl: 'complaint.html',
+    link: function() {
+      console.log( "complaint directive created" );
+    }
+  };
+});
 
+/*
 $(document).ready( function() {
   var proves = $('.proves');
   var single_file = proves.html();
@@ -74,4 +87,4 @@ $(document).ready( function() {
   };
 
 });
-
+*/
