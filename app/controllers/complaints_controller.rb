@@ -30,7 +30,7 @@ class ComplaintsController < ApplicationController
           @complaint.attachs( proof )
         end
 
-        result = @complaint.save 
+        result = @complaint.save && verify_recaptcha( @complaint)
       end
     rescue RepositoryError => e
       result = false 
@@ -80,9 +80,15 @@ class ComplaintsController < ApplicationController
     complaint = Complaint.find_by_id(params[:id])
     user = current_user
     
+    puts "#{__FILE__}:#{__LINE__} - #{user.inspect()} - #{complaint.inspect()}"
     return head(:bad_request) unless complaint and user
 
+    
     user.advocates( complaint )
+
+    complaint.advocators.each do |a|
+      puts a.email()
+    end
 
     render json: { :id => complaint.id,                         \
       :advocators => complaint.advocators.map { |u| u.email }   \
@@ -93,6 +99,8 @@ class ComplaintsController < ApplicationController
     complaint = Complaint.find_by_id(params[:id])
     user = current_user
     
+    puts "#{__FILE__}:#{__LINE__} - #{user.inspect()} - #{complaint.inspect()}"
+
     return head(:bad_request) unless complaint and user
 
     user.relinquishes( complaint )
@@ -101,4 +109,5 @@ class ComplaintsController < ApplicationController
       :advocators => complaint.advocators.map { |u| u.email }   \
     }
   end
+
 end
