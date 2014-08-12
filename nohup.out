@@ -1,0 +1,80 @@
+console.error: 
+TypeError
+  - prototype TypeError
+    - columnNumber = 4
+    - fileName = resource:///modules/devtools/TiltVisualizer.jsm
+    - lineNumber = 780
+  - prototype Error
+  - prototype Object
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+
+TypeError: this._traverseData is null: TVP_highlightNode@resource:///modules/devtools/TiltVisualizer.jsm:780
+TV_onNewNodeFromInspector@resource:///modules/devtools/TiltVisualizer.jsm:250
+EventEmitter_emit@resource:///modules/devtools/EventEmitter.jsm:100
+SN_setNode@resource:///modules/devtools/Selection.jsm:133
+onDOMReady@resource:///modules/devtools/InspectorPanel.jsm:209
+

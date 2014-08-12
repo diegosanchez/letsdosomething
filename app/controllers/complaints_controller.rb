@@ -30,7 +30,7 @@ class ComplaintsController < ApplicationController
           @complaint.attachs( proof )
         end
 
-        result = @complaint.save 
+        result = @complaint.save && verify_recaptcha( @complaint)
       end
     rescue RepositoryError => e
       result = false 
@@ -101,4 +101,5 @@ class ComplaintsController < ApplicationController
       :advocators => complaint.advocators.map { |u| u.email }   \
     }
   end
+
 end
