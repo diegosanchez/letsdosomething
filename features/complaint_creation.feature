@@ -6,6 +6,7 @@ Feature: Users can browse, list, create and edit complaints
   Background:
     Given 'Chad' is enrolled
     And   'John' is enrolled
+    And   There are captcha service
     Given 'Chad complaint' was written
     And   'John complaint' was written
 
