@@ -1,0 +1,5 @@
+es:
+  recaptcha:
+    errors:
+      verification_failed: 'El captcha es inválido'
+      recaptcha_unreachable: 'No se puede verificar el captcha'
